@@ -11,9 +11,9 @@ class Shuchu {
 		Scanner input1 = new Scanner(System.in);
 		String name="";
 		String studentNumber="";
-		int[] score=new int[3];
-		Student[] student=new Student[2];
-		for(int i=0;i<2;i++) {
+		double[] score=new double[3];
+		Student[] student=new Student[5];
+		for(int i=0;i<student.length;i++) {
 			System.out.printf("开始输入第%d个学生的信息：\n",i+1);
 			System.out.println("输入学生姓名：");
 			name=input1.nextLine();
@@ -21,7 +21,7 @@ class Shuchu {
 			studentNumber=input1.nextLine();
 			for(int j=0;j<3;j++) {
 				System.out.printf("输入该学生的第%d门学科分数：\n",j+1);
-				score[j]=input1.nextInt();
+				score[j]=input1.nextDouble();
 			}
 			input1.nextLine();
 			student[i]=new Student(name, studentNumber);
@@ -29,14 +29,12 @@ class Shuchu {
 		}
 		input1.close();
 		//写入文件
-		//writeFile(student,"F:\\Users\\Desktop\\java\\workspace\\BasicCodeTest\\bin\\test50\\student.txt");
-		System.out.println(student[0].averageScore()+":"+student[1].averageScore());
-		System.out.println(student[0].equals(student[1]));
+		writeFile(student,"C:\\Users\\yfzhao\\eclipse-workspace\\student.txt");
 	}
 	public static void writeFile(Student[] student,String fileName) {
 		FileWriter fw=null;
 		try {
-			fw=new FileWriter(fileName);
+			fw=new FileWriter(fileName,true);
 			BufferedWriter bw = new BufferedWriter(fw); 
 			bw.write("开始一次记录\r\n");
 			for(int i=0;i<student.length;i++) {
