@@ -17,11 +17,11 @@ public class ClientScoket{
 		try {
 			ip1 = InetAddress.getByName("127.0.0.1");
 			clientSocket1 = new Socket(ip1,port);
-			System.out.println("创建客户端套接字！");
+			System.out.println("客户端套接字创建");
 			clientIn = new BufferedReader(new InputStreamReader(clientSocket1.getInputStream()));
 			clientOut = new PrintWriter(clientSocket1.getOutputStream(),true);
 			while(true) {
-				clientOut.println("这是客户端哦");
+				clientOut.println("这里是客户端");
 				//Thread.sleep(2000);
 				String in = clientIn.readLine();
 				System.out.println(in+"--客户端显示");
@@ -32,7 +32,7 @@ public class ClientScoket{
 			
 			
 		} catch (Exception e) {
-			// TODO 自动生成的 catch 块
+			// TODO 锟皆讹拷锟斤拷锟缴碉拷 catch 锟斤拷
 			e.printStackTrace();
 		}finally {
 			try {
